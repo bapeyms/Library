@@ -1,12 +1,14 @@
 #pragma once
 class Library
 {
-	Book** bookArr;
+	Book* bookArr;
 	int bookAmount;
 	int currentAmount;
 public:
 	Library();
-	Library(int amount);
 	~Library();
+
+	void AddBookToTheLibrary(const Book& book);;
+	void ShowAllBooks();
 };
 
