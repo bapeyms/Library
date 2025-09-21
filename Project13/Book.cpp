@@ -1,6 +1,7 @@
 #include "Book.h"
 #include "Person.h"
 #include "Library.h"
+#include "Funcs.h"
 #include <iostream>
 using namespace std;
 
@@ -14,12 +15,15 @@ Book::Book(const char* name, const char* author, bool st)
 	strcpy_s(bookAuthor, strlen(author) + 1, author);
 
 	status = st;
+    issuedTo = nullptr;
 }
 Book::~Book()
 {
 	delete[] bookTitle;
 	delete[] bookAuthor;
+    issuedTo = nullptr;
 }
+
 Book::Book(const Book& copy)
 {
     bookTitle = new char[strlen(copy.bookTitle) + 1];
@@ -29,6 +33,7 @@ Book::Book(const Book& copy)
     strcpy_s(bookAuthor, strlen(copy.bookAuthor) + 1, copy.bookAuthor);
 
     status = copy.status;
+    issuedTo = copy.issuedTo;
 }
 Book& Book::operator=(const Book& copy) 
 {
@@ -44,8 +49,14 @@ Book& Book::operator=(const Book& copy)
         strcpy_s(bookAuthor, strlen(copy.bookAuthor) + 1, copy.bookAuthor);
 
         status = copy.status;
+        issuedTo = copy.issuedTo;
     }
     return *this;
+}
+
+Person* Book::GetIssuedTo()
+{
+    return issuedTo;
 }
 
 char* Book::GetBookTitle()
@@ -59,5 +70,14 @@ char* Book::GetBookAuthor()
 bool Book::GetStatus()
 {
 	return status;
+}
+
+void Book::SetStatus(bool st) 
+{
+    status = st;
+}
+void Book::SetIssuedTo(Person* person) 
+{
+    issuedTo = person;
 }
 
