@@ -1,3 +1,6 @@
+#include "Library.h"
+#include "Book.h"
+
 #pragma once
 class Person
 {

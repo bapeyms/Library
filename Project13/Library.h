@@ -1,4 +1,6 @@
 #pragma once
+#include "Book.h"
+#include "Person.h"
 class Library
 {
 	Book* bookArr;

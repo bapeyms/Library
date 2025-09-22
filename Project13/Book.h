@@ -1,4 +1,7 @@
 #pragma once
+#include "Person.h"
+#include "Library.h"
+#include "Book.h"
 class Person;
 
 class Book

@@ -1,5 +1,3 @@
-#include "Book.h"
-#include "Person.h"
 #include "Library.h"
 #include "Funcs.h"
 #include <iostream>
